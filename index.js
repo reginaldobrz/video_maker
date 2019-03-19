@@ -1,6 +1,6 @@
 const readline = require('readline-sync')
 const robots = {
-  text: require('./robots/text.js')
+  text: require('C:/Users/01204146195.GOIASPREV.000/Documents/video_maker/robots/text')
 }
 
 async function start() {
@@ -25,7 +25,8 @@ async function start() {
     return selectedPrefixText
   }
 
-  console.log(JSON.stringify(content, null, 4))
+  //console.log(JSON.stringify(content, null, 4))
+  console.log(content)
 }
 
 start()
