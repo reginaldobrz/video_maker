@@ -14,12 +14,18 @@ var nlu = new NaturalLanguageUnderstandingV1({
 })
 ///////////////////////////////Código pronto da IBM///////////////////////////////
 
-async function robot(content) {
+const state = require('C:/Users/01204146195.GOIASPREV.000/Documents/video_maker/robots/state')
+
+async function robot() {
+  const content = state.load()
+
   await fetchContentFromWikipedia(content)
   sanitizeContent(content)
   breakContentIntoSentences(content)
   limitMaximumSentences(content)
   await fetchKeywordsOfAllSentences(content)
+
+  state.save(content)
 
   async function fetchContentFromWikipedia(content) {
     const algorithmiaAuthenticated = algorithmia(algorithmiaApiKey)
@@ -99,8 +105,6 @@ async function robot(content) {
         })
     })
  }
-
-
 ///////////////////////////////Resposta ao CallBack///////////////////////////////
 
 }
